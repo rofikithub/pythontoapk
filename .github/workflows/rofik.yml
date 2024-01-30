@@ -14,7 +14,8 @@ on:
 jobs:
   # Build job. Builds app for Android with Buildozer
   build-android:
-    name: Build for Android
+    name: Build for Android  
+    if: github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.action != 'closed')
     runs-on: ubuntu-latest
 
     steps:
